@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 namespace Geekbrains
 {
-    public sealed class GoodBonus : InteractiveObjects, IBoostable, IEquatable<GoodBonus>
+    public class GoodBonus : InteractiveObjects, IBoostable, IEquatable<GoodBonus>
     {
         private DisplayBonuses _displayBonuses;
         public int Point;
