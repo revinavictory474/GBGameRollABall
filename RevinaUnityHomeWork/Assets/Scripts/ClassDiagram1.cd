@@ -1,32 +1,98 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Geekbrains.CameraController">
-    <Position X="3" Y="0.5" Width="1.5" />
+  <Class Name="Geekbrains.BadBonus" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAQAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BadBonus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Geekbrains.CameraController" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAIAAAIAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Assets\Scripts\CameraController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Geekbrains.Player">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="Geekbrains.DisplayBonuses" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAKAAAAAAAAAAAAABAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\DisplayBonuses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Geekbrains.GameController" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Geekbrains.GoodBonus" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAACAAAAAAAQAAAAAAAAAAQAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\GoodBonus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Geekbrains.InteractiveObjects" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\InteractiveObjects.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Geekbrains.Player" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAKAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Geekbrains.PlayerBall">
-    <Position X="0.5" Y="2.75" Width="1.5" />
+  <Class Name="Geekbrains.PlayerBall" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\PlayerBall.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Geekbrains.StartGame">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+  <Class Name="Geekbrains.SavedData&lt;T&gt;" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\StartGame.cs</FileName>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SavedData.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Geekbrains.Test" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Geekbrains.MouseLook" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAICAAAAAQAAEAAAAAAAAAAAAAAAAAgCAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MouseLook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Geekbrains.IBoostable" Collapsed="true">
+    <Position X="5.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\IBoostable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Geekbrains.IInteractable" Collapsed="true">
+    <Position X="7" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\IInteractable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
