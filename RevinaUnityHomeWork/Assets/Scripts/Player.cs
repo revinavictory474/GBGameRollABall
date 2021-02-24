@@ -4,11 +4,13 @@ namespace Geekbrains
 {
     public class Player : MonoBehaviour
     {
-        public float Speed = 3.0f; 
+        private float _speed = 3.0f;
+        public float Speed { get => _speed; set => _speed = value; }
         public float Gravity = -9.8f;
-        private CharacterController _charController;
+        protected CharacterController _charController;
 
-        private void Start()
+
+        protected void Start()
         {
             _charController = GetComponent<CharacterController>();
         }

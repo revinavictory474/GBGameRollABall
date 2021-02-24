@@ -1,22 +1,37 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Geekbrains
 {
     public sealed class GameController : MonoBehaviour
     {
-        private InteractiveObjects[] _interactiveObjects;
+        public Text _finishGameLabel;
+        private ListInteractableObject _interactiveObjects;
+        private DisplayEndGame _displayEndGame;
+
         private void Awake()
         {
-            _interactiveObjects = FindObjectsOfType<InteractiveObjects>();
+            _interactiveObjects = new ListInteractableObject();
+            _displayEndGame = new DisplayEndGame(_finishGameLabel);
+            foreach (var o in _interactiveObjects)
+            {
+                if (o is BadBonus badBonus)
+                {
+                    badBonus.CaughtPlayer += CaughtPlayer;
+                    badBonus.CaughtPlayer += _displayEndGame.GameOver;
+                }
+            }
+
         }
 
-        private void Start()
+        private void CaughtPlayer(object value, Color color)
         {
-            Player player = new PlayerBall();
+            Time.timeScale = 0.0f;
         }
         private void Update()
         {
-            for (var i = 0; i < _interactiveObjects.Length; i++)
+            for (var i = 0; i < _interactiveObjects.Count; i++)
             {
                 var interactiveObject = _interactiveObjects[i];
 
@@ -30,7 +45,24 @@ namespace Geekbrains
                     boost.Boost();
                 }
             }
+
         }
+        public void Dispose()
+        {
+            foreach (var o in _interactiveObjects)
+            {
+                if (o is InteractiveObjects interactiveObject)
+                {
+                    if (o is BadBonus badBonus)
+                    {
+                        badBonus.CaughtPlayer -= CaughtPlayer;
+                        badBonus.CaughtPlayer -= _displayEndGame.GameOver;
+                    }
+                    Destroy(interactiveObject.gameObject);
+                }
+            }
+        }
+
 
     }
 }

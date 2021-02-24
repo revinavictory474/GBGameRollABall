@@ -14,7 +14,7 @@ namespace Geekbrains
         public ListInteractableObject()
         {
             _interactiveObjects = Object.FindObjectsOfType<InteractiveObjects>();
-            Array.Sort(_interactiveObjects);
+            //Array.Sort(_interactiveObjects);
         }
 
         public InteractiveObjects this[int index]
