@@ -2,11 +2,22 @@
 
 namespace Geekbrains
 {
-    public abstract class InteractiveObjects : MonoBehaviour, IInteractable, IBoostable
+    public abstract class InteractiveObjects : MonoBehaviour, IBoostable, IExecute
     {
         protected Color _color;
-        protected Player player;
-        public bool IsInteractable { get; } = true;
+        protected PlayerBase player;
+        private bool _isInteractable;
+
+        protected bool IsInteractable
+        {
+            get { return _isInteractable; }
+            private set
+            {
+                 _isInteractable = value;
+                 GetComponent<Renderer>().enabled = _isInteractable;
+                 GetComponent<Collider>().enabled = _isInteractable;
+            }
+        }
 
         private void Start()
         {
@@ -15,6 +26,7 @@ namespace Geekbrains
         public abstract void Boost();
 
         protected abstract void Interaction();
+        public abstract void Execute();
 
         private void OnTriggerEnter(Collider other)
         {
@@ -25,10 +37,12 @@ namespace Geekbrains
             Boost();
             Interaction();
             Destroy(gameObject);
+            IsInteractable = false;
         }
 
         public void Action()
         {
+            IsInteractable = true;
             _color = Random.ColorHSV();
             if(TryGetComponent(out Renderer renderer))
             { renderer.material.color = _color; }

@@ -1,21 +1,23 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using System;
 
 namespace Geekbrains
 {
     public sealed class DisplayBonuses 
     {
-        private Text _text;
+        private Text _bonuseLabel;
         public int _score;
 
-        public DisplayBonuses()
+        public DisplayBonuses(GameObject bonus)
         {
-            _text = Object.FindObjectOfType<Text>();
+            _bonuseLabel = bonus.GetComponentInChildren<Text>();
+            _bonuseLabel.text = String.Empty;
         }
 
-        public void Display()
+        public void Display(int value)
         {
-            _text.text = $"Вы набрали {_score} очков!";
+            _bonuseLabel.text = $"Вы набрали {value} очков!";
         }
     }
 }
