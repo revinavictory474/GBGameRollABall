@@ -1,37 +1,74 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace Geekbrains
 {
-    public sealed class GameController : MonoBehaviour
+    public sealed class GameController : MonoBehaviour, IDisposable
     {
-        public Text _finishGameLabel;
-        private ListInteractableObject _interactiveObjects;
+        private CameraController _cameraController;
+        private ListExecuteObject _interactiveObjects;
         private DisplayEndGame _displayEndGame;
+        private DisplayBonuses _displayBonuses;
+        private InputController _inputController;
+        private int _countBonuses;
+        private Reference _reference;
 
         private void Awake()
         {
-            _interactiveObjects = new ListInteractableObject();
-            _displayEndGame = new DisplayEndGame(_finishGameLabel);
+            _interactiveObjects = new ListExecuteObject();
+
+            var _reference = new Reference();
+            PlayerBase player = _reference.PlayerBall;
+
+            _cameraController = new CameraController(player.transform, _reference.MainCamera.transform);
+            _interactiveObjects.AddExecuteObject(_cameraController);
+
+            _inputController = new InputController(player);
+            _interactiveObjects.AddExecuteObject(_inputController);
+
+            _displayEndGame = new DisplayEndGame(_reference.EndGame);
+            _displayBonuses = new DisplayBonuses(_reference.Bonuse);
+
             foreach (var o in _interactiveObjects)
             {
                 if (o is BadBonus badBonus)
                 {
-                    badBonus.CaughtPlayer += CaughtPlayer;
-                    badBonus.CaughtPlayer += _displayEndGame.GameOver;
+                    badBonus.OnCaughtPlayerChange += CaughtPlayer;
+                    badBonus.OnCaughtPlayerChange += _displayEndGame.GameOver;
+                }
+                if (o is GoodBonus goodBonus)
+                {
+                    goodBonus.OnPointChange += AddBonuse;
                 }
             }
 
+            _reference.RestartButton.onClick.AddListener(RestartGame);
+            _reference.RestartButton.gameObject.SetActive(false);
         }
 
-        private void CaughtPlayer(object value, Color color)
+        private void RestartGame()
         {
-            Time.timeScale = 0.0f;
+            SceneManager.LoadScene(0);
+            Time.timeScale = 1.0f;
+        }
+
+        private void AddBonuse(int value)
+        {
+            _countBonuses += value;
+            _displayBonuses.Display(_countBonuses);
+        }
+
+
+        private void CaughtPlayer(string value, Color args)
+        {
+            _reference.RestartButton.gameObject.SetActive(true);
+            Time.timeScale = 1.0f;
         }
         private void Update()
         {
-            for (var i = 0; i < _interactiveObjects.Count; i++)
+            for (var i = 0; i < _interactiveObjects.Length; i++)
             {
                 var interactiveObject = _interactiveObjects[i];
 
@@ -39,11 +76,7 @@ namespace Geekbrains
                 {
                     continue;
                 }
-
-                if (interactiveObject is IBoostable boost)
-                {
-                    boost.Boost();
-                }
+                interactiveObject.Execute();
             }
 
         }
@@ -55,10 +88,13 @@ namespace Geekbrains
                 {
                     if (o is BadBonus badBonus)
                     {
-                        badBonus.CaughtPlayer -= CaughtPlayer;
-                        badBonus.CaughtPlayer -= _displayEndGame.GameOver;
+                        badBonus.OnCaughtPlayerChange -= CaughtPlayer;
+                        badBonus.OnCaughtPlayerChange -= _displayEndGame.GameOver;
                     }
-                    Destroy(interactiveObject.gameObject);
+                    if (o is GoodBonus goodBonus)
+                    {
+                        goodBonus.OnPointChange -= AddBonuse;
+                    }
                 }
             }
         }

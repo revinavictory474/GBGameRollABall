@@ -7,14 +7,17 @@ namespace Geekbrains
     public class GoodBonus : InteractiveObjects, IBoostable, IEquatable<GoodBonus>
     {
         private DisplayBonuses _displayBonuses;
+        public event Action<int> OnPointChange = delegate (int i) { };
         public int Point;
         private float _speedPlus;
         private float _speedBoost = 2;
-        public int Score = 5;
+        private Material _material;
+
 
         private void Awake()
         {
-            _displayBonuses = new DisplayBonuses();
+            _material = GetComponent<Renderer>().material;
+            //_displayBonuses = new DisplayBonuses();
         }
         public override void Boost()
         {
@@ -25,13 +28,19 @@ namespace Geekbrains
 
         protected override void Interaction()
         {
-            _displayBonuses._score += Score;
-            _displayBonuses.Display();
+            _displayBonuses.Display(5);
+            OnPointChange.Invoke(Point);
         }
 
         public bool Equals(GoodBonus other)
         {
             return Point == other.Point;
+        }
+
+        public override void Execute()
+        {
+            if (!IsInteractable) { return; }
+            Boost();
         }
     }
 }

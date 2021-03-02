@@ -7,11 +7,11 @@ namespace Geekbrains
     public sealed class BadBonus : InteractiveObjects, IBoostable  
     {
         DisplayBonuses _displayBadBonuses;
+        public event Action<string, Color> OnCaughtPlayerChange = delegate (string str, Color color) { };
+        
 
-        public int Score = 5;
-
-        private event EventHandler<Color> _caughtPlayer;
-        public event EventHandler<Color> CaughtPlayer
+        private event EventHandler<CaughtPlayerEventArgs> _caughtPlayer;
+        public event EventHandler<CaughtPlayerEventArgs> CaughtPlayer
         {
             add { _caughtPlayer += value; }
             remove { _caughtPlayer -= value; }
@@ -19,7 +19,7 @@ namespace Geekbrains
 
         private void Awake()
         {
-            _displayBadBonuses = new DisplayBonuses();
+            //_displayBadBonuses = new DisplayBonuses();
         }
         public override void Boost()
         {
@@ -28,9 +28,15 @@ namespace Geekbrains
 
         protected override void Interaction()
         {
-            _caughtPlayer?.Invoke(this, _color);
-            _displayBadBonuses._score -= Score;
-            _displayBadBonuses.Display();
+            OnCaughtPlayerChange.Invoke(gameObject.name, _color);
+            
+            _displayBadBonuses.Display(-5);
+        }
+
+        public override void Execute()
+        {
+            if (!IsInteractable) { return; }
+            Boost();
         }
     }
 }

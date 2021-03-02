@@ -8,26 +8,15 @@ namespace Geekbrains
     {
         private Text _finishGameLabel;
 
-        public DisplayEndGame(Text finishGameLabel)
+        public DisplayEndGame(GameObject endGame)
         {
-            try
-            {
-                _finishGameLabel = finishGameLabel;
-                _finishGameLabel.text = String.Empty;
-            }
-            catch
-            {
-                Debug.Log("finishGameLabel is missing");
-            }
-            finally
-            {
-                Debug.Log("Block finally");
-            }
+            _finishGameLabel = endGame.GetComponentInChildren<Text>();
+            _finishGameLabel.text = String.Empty;
         }
 
-        public void GameOver(object o, Color color)
+        public void GameOver(string name, Color color)
         {
-            _finishGameLabel.text = $"Вы проиграли. Вас убил {((GameObject)o).name} {color} цвета";
+            _finishGameLabel.text = $"Вы проиграли. Вас убил {name} {color} цвета";
         }
 
     }

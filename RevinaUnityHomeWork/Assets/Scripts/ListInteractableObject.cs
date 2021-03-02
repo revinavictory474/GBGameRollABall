@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Geekbrains
@@ -14,7 +13,6 @@ namespace Geekbrains
         public ListInteractableObject()
         {
             _interactiveObjects = Object.FindObjectsOfType<InteractiveObjects>();
-            //Array.Sort(_interactiveObjects);
         }
 
         public InteractiveObjects this[int index]
@@ -23,7 +21,7 @@ namespace Geekbrains
             set => _interactiveObjects[index] = value;
         }
 
-        public int Count => _interactiveObjects.Length;
+        public int Length => _interactiveObjects.Length;
 
         public bool MoveNext()
         {
