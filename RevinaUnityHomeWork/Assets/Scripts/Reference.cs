@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Geekbrains
 {
-    public class Reference : MonoBehaviour
+    public class Reference 
     {
         private PlayerBall _playerBall;
         private Camera _mainCamera;

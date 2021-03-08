@@ -11,7 +11,7 @@ namespace Geekbrains
         {
             _playerBase = player;
         }
-
+        
         public void Execute()
         {
             _playerBase.Move(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));

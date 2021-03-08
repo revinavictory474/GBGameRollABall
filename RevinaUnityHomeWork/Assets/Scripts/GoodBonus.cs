@@ -37,10 +37,10 @@ namespace Geekbrains
             return Point == other.Point;
         }
 
-        public override void Execute()
-        {
-            if (!IsInteractable) { return; }
-            Boost();
-        }
+        //public override void Execute()
+        //{
+        //    if (!IsInteractable) { return; }
+        //    Boost();
+        //}
     }
 }

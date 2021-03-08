@@ -2,7 +2,7 @@
 
 namespace Geekbrains
 {
-    public abstract class InteractiveObjects : MonoBehaviour, IBoostable, IExecute
+    public abstract class InteractiveObjects : MonoBehaviour, IBoostable //, IExecute
     {
         protected Color _color;
         protected PlayerBase player;
@@ -19,14 +19,15 @@ namespace Geekbrains
             }
         }
 
-        private void Start()
+        protected virtual void Start()
         {
+            player = FindObjectOfType<PlayerBase>();
             Action();
         }
         public abstract void Boost();
 
         protected abstract void Interaction();
-        public abstract void Execute();
+        //public abstract void Execute();
 
         private void OnTriggerEnter(Collider other)
         {

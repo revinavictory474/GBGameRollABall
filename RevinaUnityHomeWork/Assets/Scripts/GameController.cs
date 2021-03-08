@@ -50,6 +50,7 @@ namespace Geekbrains
 
         private void RestartGame()
         {
+            new GameObject().AddComponent<PlayerBall>();
             SceneManager.LoadScene(0);
             Time.timeScale = 1.0f;
         }

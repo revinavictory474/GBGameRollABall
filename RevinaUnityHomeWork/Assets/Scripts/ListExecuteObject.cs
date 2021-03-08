@@ -13,10 +13,10 @@ namespace Geekbrains
 
         public ListExecuteObject()
         {
-            var interactiveObjects = Object.FindObjectOfType<InteractiveObjects>();
-            for (var i = 0; i < _interactiveObjects.Length; i++)
+            var interactiveObjects = Object.FindObjectsOfType<InteractiveObjects>();
+            for (var i = 0; i < interactiveObjects.Length; i++)
             {
-                if (_interactiveObjects[i] is IExecute interactiveObject)
+                if (interactiveObjects[i] is IExecute interactiveObject)
                 {
                     AddExecuteObject(interactiveObject);
                 }

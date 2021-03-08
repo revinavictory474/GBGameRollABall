@@ -24,6 +24,7 @@ namespace Geekbrains
         public override void Boost()
         {
             Destroy(player.gameObject);
+            //IsInteractable = false;
         }
 
         protected override void Interaction()
@@ -33,10 +34,10 @@ namespace Geekbrains
             _displayBadBonuses.Display(-5);
         }
 
-        public override void Execute()
-        {
-            if (!IsInteractable) { return; }
-            Boost();
-        }
+        //public override void Execute()
+        //{
+        //    if (!IsInteractable) { return; }
+        //    Boost();
+        //}
     }
 }
