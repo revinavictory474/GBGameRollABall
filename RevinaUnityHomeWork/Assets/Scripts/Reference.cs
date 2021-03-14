@@ -13,6 +13,19 @@ namespace Geekbrains
         private Canvas _canvas;
         private Button _restartButton;
 
+
+        public Canvas Canvas
+        {
+            get
+            {
+                if (_canvas == null)
+                {
+                    _canvas = Object.FindObjectOfType<Canvas>();
+                }
+                return _canvas;
+            }
+        }
+
         public Button RestartButton
         {
             get
@@ -25,17 +38,7 @@ namespace Geekbrains
                 return _restartButton;
             }
         }
-        public Canvas Canvas
-        {
-            get
-            {
-                if (_canvas == null)
-                {
-                    _canvas = Object.FindObjectOfType<Canvas>();
-                }
-                return _canvas;
-            }
-        }
+        
 
         public GameObject Bonuse
         {

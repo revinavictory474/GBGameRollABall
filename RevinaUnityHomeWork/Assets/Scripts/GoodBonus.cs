@@ -19,6 +19,10 @@ namespace Geekbrains
             _material = GetComponent<Renderer>().material;
             //_displayBonuses = new DisplayBonuses();
         }
+        protected override void Start()
+        {
+            base.Start();
+        }
         public override void Boost()
         {
             _speedPlus = player.Speed * _speedBoost;

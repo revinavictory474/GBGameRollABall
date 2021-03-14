@@ -21,6 +21,10 @@ namespace Geekbrains
         {
             //_displayBadBonuses = new DisplayBonuses();
         }
+        protected override void Start()
+        {
+            base.Start();
+        }
         public override void Boost()
         {
             Destroy(player.gameObject);

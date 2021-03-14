@@ -27,7 +27,7 @@ namespace Geekbrains
             if (_interactiveObjects == null)
             {
                 _interactiveObjects = new[] { execute };
-                return;
+                return; 
             }
             Array.Resize(ref _interactiveObjects, Length + 1);
             _interactiveObjects[Length - 1] = execute;
