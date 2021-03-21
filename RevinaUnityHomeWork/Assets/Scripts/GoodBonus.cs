@@ -32,7 +32,7 @@ namespace Geekbrains
 
         protected override void Interaction()
         {
-            _displayBonuses.Display(5);
+            //_displayBonuses.Display(5);
             OnPointChange.Invoke(Point);
         }
 

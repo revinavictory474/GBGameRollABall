@@ -19,7 +19,7 @@ namespace Geekbrains
         {
             _interactiveObjects = new ListExecuteObject();
 
-            var _reference = new Reference();
+            _reference = new Reference();
             PlayerBase player = _reference.PlayerBall;
 
             _cameraController = new CameraController(player.transform, _reference.MainCamera.transform);
@@ -50,7 +50,7 @@ namespace Geekbrains
 
         private void RestartGame()
         {
-            new GameObject().AddComponent<PlayerBall>();
+            //new GameObject().AddComponent<PlayerBall>();
             SceneManager.LoadScene(0);
             Time.timeScale = 1.0f;
         }
@@ -65,7 +65,7 @@ namespace Geekbrains
         private void CaughtPlayer(string value, Color args)
         {
             _reference.RestartButton.gameObject.SetActive(true);
-            Time.timeScale = 1.0f;
+            Time.timeScale = 0.0f;
         }
         private void Update()
         {
@@ -85,7 +85,7 @@ namespace Geekbrains
         {
             foreach (var o in _interactiveObjects)
             {
-                if (o is InteractiveObjects interactiveObject)
+               // if (o is InteractiveObjects interactiveObject)
                 {
                     if (o is BadBonus badBonus)
                     {

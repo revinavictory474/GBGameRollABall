@@ -27,7 +27,7 @@ namespace Geekbrains
         }
         public override void Boost()
         {
-            Destroy(player.gameObject);
+            //Destroy(gameObject);
             //IsInteractable = false;
         }
 
@@ -36,6 +36,7 @@ namespace Geekbrains
             OnCaughtPlayerChange.Invoke(gameObject.name, _color);
             
             _displayBadBonuses.Display(-5);
+            Destroy(gameObject);
         }
 
         //public override void Execute()

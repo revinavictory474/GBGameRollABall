@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static UnityEngine.Random;
 
 namespace Geekbrains
 {
@@ -23,6 +24,12 @@ namespace Geekbrains
         {
             player = FindObjectOfType<PlayerBase>();
             Action();
+            IsInteractable = true;
+            _color = ColorHSV();
+            if (TryGetComponent(out Renderer renderer))
+            {
+                renderer.material.color = _color;
+            }
         }
         public abstract void Boost();
 
@@ -36,7 +43,7 @@ namespace Geekbrains
                 return;
             }
             Boost();
-            Interaction();
+            //Interaction();
             Destroy(gameObject);
             IsInteractable = false;
         }

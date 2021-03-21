@@ -7,7 +7,6 @@ namespace Geekbrains
     public sealed class DisplayBonuses 
     {
         private Text _bonuseLabel;
-        public int _score;
 
         public DisplayBonuses(GameObject bonus)
         {
