@@ -7,10 +7,7 @@ namespace Geekbrains
     public class RadarController : RadarModel
     {
 		
-		private void Start()
-        {
-            _playerPos = Camera.main.transform;
-		}
+		
 
 		public static void RegisterRadarObject(GameObject o, Image i)
 		{

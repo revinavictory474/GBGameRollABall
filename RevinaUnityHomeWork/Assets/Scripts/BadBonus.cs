@@ -8,9 +8,8 @@ namespace Geekbrains
     {
         DisplayBonuses _displayBadBonuses;
         public event Action<string, Color> OnCaughtPlayerChange = delegate (string str, Color color) { };
-        
-
         private event EventHandler<CaughtPlayerEventArgs> _caughtPlayer;
+
         public event EventHandler<CaughtPlayerEventArgs> CaughtPlayer
         {
             add { _caughtPlayer += value; }
