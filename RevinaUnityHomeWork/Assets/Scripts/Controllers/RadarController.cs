@@ -7,8 +7,6 @@ namespace Geekbrains
     public class RadarController : RadarModel
     {
 		
-		
-
 		public static void RegisterRadarObject(GameObject o, Image i)
 		{
 			Image image = Instantiate(i);
