@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4724917545694241218}
   - component: {fileID: 4376932994370111358}
   - component: {fileID: 2081833370219350404}
+  - component: {fileID: -3675374001300811189}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Untagged
@@ -109,3 +110,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Point: 0
+--- !u!114 &-3675374001300811189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659387619218585501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e048e1f9e86084987aba8fd799fa68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ico: {fileID: 6014745556994806794, guid: da61c574a0ee7d949a7a569d7b07fd72, type: 3}
